@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quarterly Earnings — Reveal.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js core from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/theme/black.css" id="theme">
+
+  <!-- Highlight.js styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <style>
+    /* Small custom styling for readability */
+    .email {
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide (HTML) -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <h3>Q4 — Executive Summary</h3>
+        <p class="email">Contact: <a href="mailto:22f3003001@ds.study.iitm.ac.in">22f3003001@ds.study.iitm.ac.in</a></p>
+
+        <!-- Speaker note for title slide -->
+        <aside class="notes">
+          Welcome stakeholders. Quick overview of agenda and financial highlights. Introduce presenters.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (demonstrates data-markdown plugin) -->
+      <section data-markdown>
+        <script type="text/template">
+## Highlights (Markdown slide)
+
+- Revenue growth: **+12% YoY**
+- Operating margin: **8.4%**
+- EPS: **$1.23**
+
+> Use fragments below to reveal items step-by-step.
+
+<!-- Speaker notes -->
+<aside class="notes">
+Reveal high-level financials first, then dive into drivers of revenue and margin.
+</aside>
+        </script>
+      </section>
+
+      <!-- Slide with fragments (animated elements) -->
+      <section>
+        <h2>Revenue Drivers</h2>
+        <ul>
+          <li class="fragment">Product A expansion (+7%): regional rollout</li>
+          <li class="fragment">Enterprise deals (+3%): 4 major contracts</li>
+          <li class="fragment">FX hedging benefit (+2%): favorable rates</li>
+        </ul>
+        <aside class="notes">
+          Emphasize Product A. Point to customer wins and cross-sell motions.
+        </aside>
+      </section>
+
+      <!-- Slide with math (MathJax) -->
+      <section>
+        <h2>Key Financial Formulas</h2>
+        <p>Net Present Value (NPV):</p>
+        <p class="fragment">\( \mathrm{NPV} = \sum_{t=0}^{T} \dfrac{C_t}{(1 + r)^t} \)</p>
+
+        <p class="fragment">Compound Annual Growth Rate (CAGR):</p>
+        <p class="fragment">\( \mathrm{CAGR} = \left(\dfrac{V_{f}}{V_{i}}\right)^{\frac{1}{n}} - 1 \)</p>
+
+        <aside class="notes">
+          Explain how we discount future cash flows and why NPV > 0 indicates value creation. Show an example on next slide.
+        </aside>
+      </section>
+
+      <!-- Slide with inline code sample (syntax highlighting) -->
+      <section>
+        <h2>Small code: NPV calculator (Python)</h2>
+        <pre><code class="language-python">
+def npv(cashflows, discount_rate):
+    """
+    cashflows: list of floats, where cashflows[0] is C0 (initial)
+    discount_rate: decimal (e.g., 0.08)
+    """
+    return sum(cf / ((1 + discount_rate) ** t) for t, cf in enumerate(cashflows))
+
+# Example:
+cashflows = [-1000, 400, 400, 400]
+print(npv(cashflows, 0.08))
+        </code></pre>
+
+        <aside class="notes">
+          Mention assumptions: timing of cashflows, terminal value, discount rate selection.
+        </aside>
+      </section>
+
+      <!-- Slide with a financial worked example (fragments reveal each line) -->
+      <section>
+        <h2>NPV Example</h2>
+        <p class="fragment">Initial investment: \(-1000\)</p>
+        <p class="fragment">Year 1-3 cash flows: \(400\) each</p>
+        <p class="fragment">Discount rate: \(r = 8\% \)</p>
+        <p class="fragment">NPV calculation: \( \sum_{t=0}^3 \dfrac{C_t}{(1+0.08)^t} \)</p>
+
+        <aside class="notes">
+          Show the math or run the snippet. Conclude whether we accept or reject the project based on NPV.
+        </aside>
+      </section>
+
+      <!-- Closing slide with action items and contact (email repeated) -->
+      <section>
+        <h2>Next Steps & Action Items</h2>
+        <ol>
+          <li class="fragment">Finalize Q4 guidance</li>
+          <li class="fragment">Confirm major contract close dates</li>
+          <li class="fragment">Update investor deck</li>
+        </ol>
+        <p class="email fragment">Questions? Contact: <a href="mailto:22f3003001@ds.study.iitm.ac.in">22f3003001@ds.study.iitm.ac.in</a></p>
+
+        <aside class="notes">
+          Thank attendees, call out follow-up meeting date, and distribute materials after the call.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://unpkg.com/reveal.js@4.4.0/dist/reveal.js"></script>
+
+  <!-- Markdown plugin (for data-markdown slides) -->
+  <script src="https://unpkg.com/reveal.js@4.4.0/plugin/markdown/markdown.esm.js" type="module"></script>
+
+  <!-- Speaker notes plugin -->
+  <script src="https://unpkg.com/reveal.js@4.4.0/plugin/notes/notes.esm.js" type="module"></script>
+
+  <!-- MathJax for math rendering -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Highlight.js for code highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+  <script type="module">
+    import Reveal from 'https://unpkg.com/reveal.js@4.4.0/dist/reveal.esm.js';
+    import Markdown from 'https://unpkg.com/reveal.js@4.4.0/plugin/markdown/markdown.esm.js';
+    import Notes from 'https://unpkg.com/reveal.js@4.4.0/plugin/notes/notes.esm.js';
+
+    const deck = new Reveal({
+      hash: true,
+      plugins: [ Markdown, Notes ],
+      // enable math rendering of inline TeX (we included MathJax separately)
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
+      }
+    });
+
+    deck.initialize().then(() => {
+      // highlight code blocks once Reveal has initialized
+      document.querySelectorAll('pre code').forEach((block) => {
+        // highlight.js auto-detect or explicit language classes can be used
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+</body>
+</html>
