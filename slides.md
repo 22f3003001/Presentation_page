@@ -1,5 +1,10 @@
 ---
 marp: true
+paginate: true
+theme: custom
+---
+---
+marp: true
 title: Product Documentation Presentation
 paginate: true
 theme: custom
